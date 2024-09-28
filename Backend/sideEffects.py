@@ -12,4 +12,4 @@ def getMedicationCode(name : str):
     return lookup.get(name)
     
 def getSideEffects(code : str):
-    print(sideEffects.loc[sideEffects["# STITCH"] == code]["Side Effect Name"])
+    return list(sideEffects.loc[sideEffects["# STITCH"] == code]["Side Effect Name"])
