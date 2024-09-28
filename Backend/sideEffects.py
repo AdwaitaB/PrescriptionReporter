@@ -11,6 +11,6 @@ sideEffects = pd.read_csv("RawData/ChSe-Decagon_monopharmacy.csv")
 def getMedicationCode(name : str):
     return lookup.get(name)
     
-def getSideEffects(code : str):
+def getSEID(code : str):
     return list(sideEffects.loc[sideEffects["# STITCH"] == code]["Side Effect Name"])
 
