@@ -13,3 +13,4 @@ def getMedicationCode(name : str):
     
 def getSideEffects(code : str):
     return list(sideEffects.loc[sideEffects["# STITCH"] == code]["Side Effect Name"])
+
