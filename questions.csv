@@ -1,0 +1,9 @@
+SEID, QUESTION, LOWBOUND, HIGHBOUND, NAME
+S0001, How often are you noticing low blood pressure symptoms?, Never, More than once per day, hypoglycemia
+S0002, How severely are you impacted by nausea?, Not at all, Heavily, nausea
+S0003, How often are you impacted by dizziness?, Never, More than once per day, dizziness
+S0004, How severely are you affected by feelings of weakness or drowsiness?, Not at all, Heavily, fatigue
+S0005, How much inflammation is there at the injection sight?, None, Easily noticed, sight inflimmation
+S0006, How severe would you describe your headaches?, No headaches, Often and debilitating, headaches
+S0007, How often due you encounter difficulty in breathing?, Never, More than once per day, dyspnea
+S0008, Have you noticed any blurring of vision?, None noticed, Easily noticed, blurred vision
