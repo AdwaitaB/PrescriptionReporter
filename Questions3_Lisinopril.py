@@ -4,13 +4,13 @@
 def ask_questions():
     # Define questions and their respective normal ranges or yes/no outcomes
     questions = [
-        {"question": "On a scale of 0-10, how would you rate the severity of dizziness? (0 being extremely low, 10 being high)", "type": "scale", "normal_range": (0, 10)},
+        {"question": "On a scale of 0-10, how would you rate the severity of dizziness? (0 being extremely low, 10 being high)", "type": "scale", "normal_range": (0, 3)},
         {"question": "Are you experiencing diarrhoea?(yes/no)", "type": "yesno", "normal": "no"},
-        {"question": "Are you experiencing severe chest pain? (yes/no)", "type": "yesno", "normal": "no"},
+        {"question": "On a scale of 0-10, how much pain do you feel in your chest? (0 being no pain, 10 being severe)", "type": "scale", "normal_range": (0, 2)},
         {"question": "Are you experiencing severe cough? (yes/no)", "type": "yesno", "normal": "no"},
         {"question": "Does your skin or/and your eyes feel yellow? (yes/no)", "type": "yesno", "normal": "no"},
         {"question": "Is there swelling on your face, throat, tongue, lips, eyes, hands, feet, ankles, or lower legs? (yes/no)", "type": "yesno", "normal": "no"},
-        {"question": "On a scale of 0-10, how would bad is your energy level? (0 being no issues, 10 being higher issues)", "type": "scale", "normal_range": (5, 10)},
+        {"question": "On a scale of 0-10, what is your energy level? (0 lowest, 10 being highest)", "type": "scale", "normal_range": (5, 10)},
 
     ]
     
@@ -33,11 +33,12 @@ def ask_questions():
                 score += 3  # Higher score for abnormal response
                 critical_flag = True
     
-    print("Please answer the following after you have taken your Lisinopril medication:")
+    
     # Calculate the final score and decide on the action
     if critical_flag or score >= len(questions) * 2:  # Threshold to alert the doctor
         print("Alert: The patient's responses indicate they should see a doctor.")
     else:
         print("The patient's responses indicate normal reactions to the medication.")
 
+print("Please answer the following after you have taken your Lisinopril medication:")
 ask_questions()
