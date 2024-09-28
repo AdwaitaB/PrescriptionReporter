@@ -1,5 +1,5 @@
 SEID, QUESTION, LOWBOUND, HIGHBOUND, NAME
-S0001, How often are you noticing low blood pressure symptoms?, Never, More than once per day, hypoglycemia
+S0001, How often are you noticing low blood sugar symptoms?, Never, More than once per day, hypoglycemia
 S0002, How severely are you impacted by nausea?, Not at all, Heavily, nausea
 S0003, How often are you impacted by dizziness?, Never, More than once per day, dizziness
 S0004, How severely are you affected by feelings of weakness or drowsiness?, Not at all, Heavily, fatigue
@@ -7,7 +7,7 @@ S0005, How much inflammation is there at the injection sight?, None, Easily noti
 S0006, How severe would you describe your headaches?, No headaches, Often and debilitating, headaches
 S0007, How often due you encounter difficulty in breathing?, Never, More than once per day, dyspnea
 S0008, Have you noticed any blurring of vision?, None noticed, Easily noticed, blurred vision
-S0009, How often are you noticing high blood pressure symptoms?, Never, More than once per day, hyperglycemia
+S0009, How often are you noticing high blood sugar symptoms?, Never, More than once per day, hyperglycemia
 S0010, How severely are you experiencing a dry mouth, Not at all, Very intensely, dry mouth
 S0011, How severely do yo feel constipated, Not at all, Very severely, Constipation
 S0012, How irritable have you been feeling, Not at all, Very much, Irritation
@@ -17,4 +17,9 @@ S0015, How severe diarrhoa are you experiencing, None, Heavy, Diarrhoea
 S0016, How severely are you experiencing cough, None, Severe, Cough
 S0017, How yellow does you skin and/or eyes appear, Not at all, Very, Yellow eyes/ skin
 S0018, How severely are you experiencing swelling on your face/ throat/ tongue/ lips/ hand/ feet/ ankles or legs, Not at all, Severe, Swelling
+S0019, Is there any redness or itchiness in the injected area, None, Severe, Itchiness or redness
+S0020, Are you experiencing seizures, None, Severe, Seizures
+S0021, How severely is your skin affected in terms of appearance of skin tags or dark velvety skin, Not at all, Severe appearances, Skin tags or dark patches
+S0022, How severe muscle cramps are you experiencing, None, Very intense, Cramps
+S0023, Do you notice enlarged hands/ feet or facial features, None, At least one, Enlarged features
 
