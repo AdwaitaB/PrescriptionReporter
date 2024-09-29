@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Patient Profile Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="app">
+    <nav>
+      <ul>
+        <li><a href="#login-page">Login</a></li>
+        <li><a href="#home-page">Dashboard</a></li>
+        <li><a href="#add-patient-page">Add Patient</a></li>
+        <li><a href="#search-page">Search</a></li>
+        <li><a href="#analytics-page">Analytics</a></li>
+      </ul>
+    </nav>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page active-page">
+      <div class="form-container">
+        <h1>Login</h1>
+        <form id="login-form">
+          <input type="text" id="username" name="username" placeholder="Username" required>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Home Page (Dashboard) -->
+    <div id="home-page" class="page">
+      <h1>Dashboard</h1>
+      <div class="dashboard-summary">
+        <div class="summary-card">
+          <h3>Total Patients</h3>
+          <p id="total-patients">0</p>
+        </div>
+        <div class="summary-card">
+          <h3>Critical Cases</h3>
+          <p id="critical-cases">0</p>
+        </div>
+        <div class="summary-card">
+          <h3>Average Health Score</h3>
+          <p id="average-health-score">0</p>
+        </div>
+      </div>
+      <h2>Patient List</h2>
+      <div class="patient-categories">
+        <h3>Critical (8-10)</h3>
+        <ul id="critical-patient-list"></ul>
+        <h3>Moderate (4-7)</h3>
+        <ul id="moderate-patient-list"></ul>
+        <h3>Stable (1-3)</h3>
+        <ul id="stable-patient-list"></ul>
+      </div>
+    </div>
+
+    <!-- Add Patient Page -->
+    <div id="add-patient-page" class="page">
+      <h1>Add New Patient</h1>
+      <form id="add-patient-form">
+        <input type="text" name="patient-name" placeholder="Name" required>
+        <input type="number" name="patient-age" placeholder="Age" required>
+        <select name="patient-gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="number" name="patient-severity" min="1" max="10" placeholder="Severity (1-10)" required>
+        <input type="text" name="patient-records" placeholder="Records (comma-separated)" required>
+        <input type="text" name="patient-medicine" placeholder="Medicine History (comma-separated)" required>
+        <textarea name="patient-family-history" placeholder="Family History" required></textarea>
+        <input type="text" name="patient-allergies" placeholder="Allergies">
+        <select name="patient-blood-type" required>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+        <button type="submit" class="btn">Add Patient</button>
+      </form>
+    </div>
+
+    <!-- Search Page -->
+    <div id="search-page" class="page">
+      <h1>Search Patients</h1>
+      <input type="text" id="search-input" placeholder="Search patients...">
+      <div id="search-results"></div>
+    </div>
+
+    <!-- Patient Profile Page -->
+    <div id="patient-profile-page" class="page">
+      <h1>Patient Profile</h1>
+      <button id="back-btn" class="btn">Back to Dashboard</button>
+      <div class="card">
+        <h2 id="patient-name"></h2>
+        <p id="patient-details"></p>
+        <div class="severity-indicator">
+          <span>Health Severity: </span>
+          <span id="patient-severity-indicator"></span>
+        </div>
+        <h3>Records:</h3>
+        <ul id="patient-records"></ul>
+        <h3>Medicine History:</h3>
+        <ul id="patient-medicine-history"></ul>
+        <h3>Family History:</h3>
+        <p id="patient-family-history"></p>
+        <h3>Allergies:</h3>
+        <p id="patient-allergies"></p>
+        <h3>Health Trends:</h3>
+        <canvas id="health-chart"></canvas>
+        <h3>Appointments</h3>
+        <ul id="patient-appointments"></ul>
+        <h3>Schedule New Appointment</h3>
+        <input type="date" id="appointment-date">
+        <input type="time" id="appointment-time">
+        <button id="schedule-appointment" class="btn">Schedule</button>
+      </div>
+    </div>
+
+    <!-- Analytics Page -->
+    <div id="analytics-page" class="page">
+      <h1>Analytics</h1>
+      <div class="analytics-container">
+        <div class="chart-container">
+          <canvas id="age-distribution-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="severity-distribution-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="gender-distribution-chart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="blood-type-distribution-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
