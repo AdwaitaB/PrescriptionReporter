@@ -13,7 +13,7 @@ class medication:
     commonSE=[]
     hazardSE=[]
 
-    def __init__():
+    def __init__(self):
         pass
 
     def getMedication(self, search: str):
@@ -23,8 +23,8 @@ class medication:
         if (self.id == None):
             raise Exception("Medication not in database")
         
-        self.commonSE = list(drugToSE.loc[drugToSE["DID"] == self.id and drugToSE["SAFETY"] == "NORMAL"]["SEID"])
-        self.hazardSE = list(drugToSE.loc[drugToSE["DID"] == self.id and drugToSE["SAFETY"] == "DANGER"]["SEID"])
+        self.commonSE = list(drugToSE.loc[drugToSE["DID"] == self.id].loc[drugToSE["SAFETY"] == "NORMAL"]["SEID"])
+        self.hazardSE = list(drugToSE.loc[drugToSE["DID"] == self.id].loc[drugToSE["SAFETY"] == "HAZARD"]["SEID"])
 
     def getQuestions(self):
         output = []
@@ -43,13 +43,13 @@ class question:
     lowerBound = ""
     higherBound = ""
 
-    def __init__():
+    def __init__(self):
         pass
 
     def getQuestion(self, search: str, safety = False):
         self.SEID = search
         questionSet = questions.loc[questions["SEID"] == self.SEID]
-        if not questionSet:
+        if questionSet.empty:
             raise Exception("Symptom does not exist")
         self.symptomName = questionSet["NAME"]
         self.severe = safety
