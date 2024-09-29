@@ -1,14 +1,12 @@
-from flask import Flask, abort, render_template
+from flask import Blueprint
+from . import db
 
-app = Flask(__name__)
+main = Blueprint('main', __name__)
 
-@app.route("/")
+@main.route('/')
 def index():
-    abort(404)
+    return 'Index'
 
-@app.route("/prescriber/dashboard")
-def prescriberDash():
-    return render_template("prescriber.html")
-
-if __name__ == "__main__":
-    pass
+@main.route('/profile')
+def profile():
+    return 'Profile'
