@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import random
 
 with open("medicineLookup.json", "r") as f:
     lookup = json.load(f)
@@ -34,6 +35,10 @@ class medication:
             output.append(question(x, False))
         for x in self.hazardSE:
             output.append(question(x, True))
+        for x in random.sample(list(questions.loc[~questions["SEID"].isin(self.commonSE)].loc[~questions["SEID"].isin(self.hazardSE)]["SEID"]), 5):
+            output.append(question(x, "FAKE"))
+
+        random.shuffle(output)
 
         return output
         
