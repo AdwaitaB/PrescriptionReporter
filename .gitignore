@@ -2,3 +2,5 @@
 RawData/ChSe-Decagon_monopharmacy.csv
 RawData/ChChSe-Decagon_polypharmacy.csv
 *.pyc
+data/patients/10570917.json
+data/prescribers/100.json

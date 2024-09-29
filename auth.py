@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import random
 import secrets
 import json
-from flask_login import login_user
+from flask_login import login_user, current_user
 from .prescriber import Prescriber
 from . import db
 
@@ -84,6 +84,14 @@ def createPatient():
     with open("data/currentCreate.json", "w") as f:
         json.dump(currentIds, f)
     
+    currentClients = []
+    with open("data/prescribers/" + str(current_user.id) + ".json", "r") as f:
+        currentClients = json.load(f)
+
+    currentClients.append(patient["id"])
+
+    with open("data/prescribers/" + str(current_user.id) + ".json", "w") as f:
+        json.dump(currentClients, f)
 
     return "medhub.compare/patient/new/" + code
 
