@@ -1,4 +1,3 @@
-const signupForm = document.getElementById('signup-form');
 const patientInfo = document.getElementById('patient-info');
 const questionnaire = document.getElementById('questionnaire');
 const results = document.getElementById('results');
@@ -13,34 +12,18 @@ const retakeBtn = document.getElementById('retake-btn');
 let currentQuestionIndex = 0;
 let patientAnswers = [];
 
-const healthQuestions = [
-    "How would you rate your overall health?",
-    "How satisfied are you with your exercise routine?",
-    "How would you rate your diet?",
-    "How would you rate your sleep quality?",
-    "How often do you feel stressed?",
-    "How would you rate your work-life balance?",
-    "How satisfied are you with your social life?",
-    "How would you rate your mental health?",
-    "How often do you engage in activities you enjoy?",
-    "How would you rate your energy levels throughout the day?",
-    "How satisfied are you with your productivity?",
-    "How would you rate your overall quality of life?"
-];
-
-signupForm.addEventListener('submit', handleSignup);
 startQuestionnaireBtn.addEventListener('click', startQuestionnaire);
 nextBtn.addEventListener('click', () => navigateQuestion(1));
 prevBtn.addEventListener('click', () => navigateQuestion(-1));
 retakeBtn.addEventListener('click', startQuestionnaire);
 
+startQuestionnaire()
+
 function handleSignup(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
-    const patientId = 'P' + Math.floor(100000 + Math.random() * 900000);
 
     document.getElementById('patient-name').textContent = name;
-    document.getElementById('patient-id').textContent = patientId;
 
     signupForm.parentElement.style.display = 'none';
     patientInfo.style.display = 'block';
@@ -56,7 +39,7 @@ function startQuestionnaire() {
 }
 
 function showQuestion(index) {
-    questionText.textContent = healthQuestions[index];
+    questionText.textContent = healthQuestions[index]["text"];
     answerOptions.innerHTML = '';
     for (let i = 0; i <= 5; i++) {
         const button = document.createElement('button');

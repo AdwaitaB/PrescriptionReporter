@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Patient Health Questionnaire</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/static/patient.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -15,18 +15,7 @@
         </header>
 
         <main>
-            <section id="signup-section" class="card">
-                <h2>Create Your Account</h2>
-                <form id="signup-form">
-                    <input type="text" id="name" placeholder="Full Name" required>
-                    <input type="password" id="password" placeholder="Password" required minlength="8">
-                    <button type="submit" class="btn">Sign Up</button>
-                </form>
-                <p class="security-info">Your data is encrypted and securely stored.</p>
-            </section>
-
             <section id="patient-info" class="card" style="display: none;">
-                <h2>Welcome, <span id="patient-name"></span>!</h2>
                 <p>Patient ID: <span id="patient-id"></span></p>
                 <p>Last Assessment: <span id="last-test-date">Never</span></p>
                 <button id="start-questionnaire" class="btn">Start Health Assessment</button>
@@ -63,6 +52,7 @@
             <p>&copy; 2024 Patient Health Portal. All rights reserved.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script>const healthQuestions =  {{ questions|tojson }}</script>
+    <script src="/static/patient.js"></script>
 </body>
 </html>
