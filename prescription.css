@@ -1,0 +1,161 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+nav {
+  background: #2c3e50;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #3498db;
+}
+
+.page {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.active-page {
+  display: block;
+}
+
+.form-container, .card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.dashboard-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.patient-categories h3 {
+  margin-top: 20px;
+}
+
+#critical-patient-list li, #moderate-patient-list li, #stable-patient-list li {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#critical-patient-list li { background-color: #e74c3c; }
+#moderate-patient-list li { background-color: #f39c12; }
+#stable-patient-list li { background-color: #2ecc71; }
+
+#critical-patient-list li:hover,
+#moderate-patient-list li:hover,
+#stable-patient-list li:hover {
+  filter: brightness(1.1);
+}
+
+.severity-indicator {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.chart-container {
+  width: 45%;
+  margin-bottom: 30px;
+}
+
+#search-results {
+  margin-top: 20px;
+}
+
+.search-result {
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-result:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .dashboard-summary, .analytics-container {
+    flex-direction: column;
+  }
+  
+  .summary-card, .chart-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
