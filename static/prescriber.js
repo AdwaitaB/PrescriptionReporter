@@ -14,7 +14,6 @@ let patients = [
 let currentPatient = null;
 
 // DOM elements
-const loginForm = document.getElementById('login-form');
 const addPatientForm = document.getElementById('add-patient-form');
 const searchInput = document.getElementById('search-input');
 const searchResults = document.getElementById('search-results');
@@ -22,7 +21,6 @@ const backBtn = document.getElementById('back-btn');
 const scheduleAppointmentBtn = document.getElementById('schedule-appointment');
 
 // Event listeners
-loginForm.addEventListener('submit', handleLogin);
 addPatientForm.addEventListener('submit', handleAddPatient);
 searchInput.addEventListener('input', handleSearch);
 backBtn.addEventListener('click', () => showPage('home-page'));
@@ -35,13 +33,6 @@ document.querySelectorAll('nav a').forEach(link => {
     showPage(e.target.getAttribute('href').slice(1));
   });
 });
-
-// Login handler
-function handleLogin(e) {
-  e.preventDefault();
-  showPage('home-page');
-  renderDashboard();
-}
 
 // Add patient handler
 function handleAddPatient(e) {

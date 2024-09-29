@@ -1,12 +1,10 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+from flask_login import login_required
 from . import db
 
 main = Blueprint('main', __name__)
 
-@main.route('/')
-def index():
-    return 'Index'
-
-@main.route('/profile')
+@main.route('/prescriber/dashboard')
+@login_required
 def profile():
-    return 'Profile'
+    return render_template("prescriber.html")

@@ -1,12 +1,17 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
+import random
 from flask_login import login_user
 from .prescriber import Prescriber
 from . import db
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login', methods=['POST'])
+@auth.route('/prescriber/login')
+def login():
+    return render_template("prescriberlogin.html")
+
+@auth.route('/prescriber/login', methods=['POST'])
 def login_post():
     # login code goes here
     email = request.form.get('email')
@@ -24,11 +29,11 @@ def login_post():
     login_user(user, remember=remember)
     return redirect(url_for('main.profile'))
 
-@auth.route('/signup')
+@auth.route('/prescriber/signup')
 def signup():
-    return 'Signup'
+    return render_template("prescribersignup.html")
 
-@auth.route('/signup', methods=['POST'])
+@auth.route('/prescriber/signup', methods=['POST'])
 def signup_post():
     # code to validate and add user to database goes here
     email = request.form.get('email')
@@ -41,7 +46,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     # create a new user with the form data. Hash the password so the plaintext version isn't saved.
-    new_user = Prescriber(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = Prescriber(email=email, name=name, password=generate_password_hash(password), id=random.randint(0,15000000))
 
     # add the new user to the database
     db.session.add(new_user)
