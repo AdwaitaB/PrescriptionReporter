@@ -2,4 +2,5 @@ import backend.medication as med
 
 test = med.medication()
 test.getMedication("insulin")
-print(test.getQuestions())
+for x in test.getQuestions():
+    print(x.__dict__)

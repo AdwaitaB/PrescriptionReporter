@@ -26,12 +26,16 @@ class medication:
         self.commonSE = list(drugToSE.loc[drugToSE["DID"] == self.id].loc[drugToSE["SAFETY"] == "NORMAL"]["SEID"])
         self.hazardSE = list(drugToSE.loc[drugToSE["DID"] == self.id].loc[drugToSE["SAFETY"] == "HAZARD"]["SEID"])
 
+        return self
+
     def getQuestions(self):
         output = []
         for x in self.commonSE:
-            output.append(question().getQuestion(x, False))
+            output.append(question(x, False))
         for x in self.hazardSE:
-            output.append(question().getQuestion(x, True))
+            output.append(question(x, True))
+
+        return output
         
 
 
@@ -43,7 +47,9 @@ class question:
     lowerBound = ""
     higherBound = ""
 
-    def __init__(self):
+    def __init__(self, search = None, safety = False):
+        if (search != None):
+            self.getQuestion(search, safety)
         pass
 
     def getQuestion(self, search: str, safety = False):
@@ -51,11 +57,13 @@ class question:
         questionSet = questions.loc[questions["SEID"] == self.SEID]
         if questionSet.empty:
             raise Exception("Symptom does not exist")
-        self.symptomName = questionSet["NAME"]
+        self.symptomName = questionSet["NAME"].iloc[0]
         self.severe = safety
-        self.text = questionSet["QUESTION"]
-        self.lowerBound = questionSet["LOWBOUND"]
-        self.higherBound = questionSet["HIGHBOUND"]
+        self.text = questionSet["QUESTION"].iloc[0]
+        self.lowerBound = questionSet["LOWBOUND"].iloc[0]
+        self.higherBound = questionSet["HIGHBOUND"].iloc[0]
+
+        return self
 
 
     

@@ -1,4 +1,4 @@
-SEID, QUESTION, LOWBOUND, HIGHBOUND, NAME
+SEID,QUESTION,LOWBOUND,HIGHBOUND,NAME
 S0001,How often are you noticing low blood sugar symptoms?,Never,More than once per day,hypoglycemia
 S0002,How severely are you impacted by nausea?,Not at all,Heavily,nausea
 S0003,How often are you impacted by dizziness?,Never,More than once per day,dizziness
