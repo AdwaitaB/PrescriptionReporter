@@ -50,7 +50,7 @@
     <!-- Add Patient Page -->
     <div id="add-patient-page" class="page">
       <h1>Add New Patient</h1>
-      <form id="add-patient-form">
+      <form id="add-patient-form" action="{{ url_for('auth.createPatient') }}" method="post">
         <input type="text" name="patient-name" placeholder="Name" required>
         <input type="number" name="patient-age" placeholder="Age" required>
         <select name="patient-gender" required>
@@ -133,6 +133,7 @@
       </div>
     </div>
   </div>
-  <script src="/static/prescriber.js"></script>
+  <script>patients = {{ patientInfo | tojson }}</script>
+  <script src="/static/prescriber.js"> </script>
 </body>
 </html>

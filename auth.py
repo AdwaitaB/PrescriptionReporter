@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
+import secrets
+import json
 from flask_login import login_user
 from .prescriber import Prescriber
 from . import db
@@ -53,6 +55,37 @@ def signup_post():
     db.session.commit()
 
     return redirect(url_for('auth.login'))
+
+@auth.route('/createPatient', methods=['POST'])
+def createPatient():
+    patient = {}
+    patient["name"] = request.form.get('patient-name')
+    patient["age"] = request.form.get('patient-age')
+    patient["gender"] = request.form.get('patient-gender')
+    patient["severity"] = request.form.get('patient-severity')
+    patient["records"] = request.form.get('patient-records')
+    patient["history"] = request.form.get('patient-medicine')
+    patient["family"] = request.form.get('patient-family-history')
+    patient["bloodtype"] = request.form.get('patient-blood-type')
+    patient["id"] = random.randint(0,15000000)
+
+    with open("data/patients/" + str(patient["id"]) + ".json", "w+") as f:
+        json.dump(patient, f)
+
+    code = ""
+
+    with open("data/currentCreate.json", "r+") as f:
+        currentIds = json.load(f)
+        code = secrets.token_urlsafe(64)
+        while (code in currentIds):
+            code = secrets.token_urlsafe(64)
+        currentIds[code] = patient["id"]
+    
+    with open("data/currentCreate.json", "w") as f:
+        json.dump(currentIds, f)
+    
+
+    return "medhub.compare/patient/new/" + code
 
 @auth.route('/logout')
 def logout():

@@ -1,16 +1,3 @@
-// Patient data
-let patients = [
-  { id: 1, name: 'John Doe', age: 45, gender: 'male', severity: 9, records: ['Checkup 2022', 'Blood Test 2023'], medicineHistory: ['Paracetamol', 'Ibuprofen'], familyHistory: 'Father: Hypertension, Mother: Diabetes', allergies: 'Peanuts', bloodType: 'A+', healthData: [65, 68, 70, 72, 75] },
-  { id: 2, name: 'Jane Smith', age: 32, gender: 'female', severity: 5, records: ['Surgery 2021', 'MRI Scan 2022'], medicineHistory: ['Aspirin'], familyHistory: 'Sister: Asthma', allergies: 'None', bloodType: 'O-', healthData: [80, 82, 79, 81, 83] },
-  { id: 3, name: 'Adam Johnson', age: 28, gender: 'male', severity: 2, records: ['Routine Check 2023'], medicineHistory: ['Vitamin D'], familyHistory: 'No significant family history', allergies: 'Dust', bloodType: 'B+', healthData: [90, 92, 91, 93, 95] },
-  { id: 4, name: 'Emily Brown', age: 39, gender: 'female', severity: 6, records: ['Allergy Test 2022'], medicineHistory: ['Antihistamine'], familyHistory: 'Mother: Allergies', allergies: 'Pollen', bloodType: 'AB-', healthData: [85, 87, 86, 88, 89] },
-  { id: 5, name: 'Michael Wilson', age: 55, gender: 'male', severity: 8, records: ['Heart Surgery 2021', 'ECG 2023'], medicineHistory: ['Beta-blockers', 'Statins'], familyHistory: 'Father: Heart Disease', allergies: 'Penicillin', bloodType: 'A-', healthData: [60, 62, 65, 68, 70] },
-  { id: 6, name: 'Sarah Davis', age: 41, gender: 'female', severity: 3, records: ['Annual Checkup 2023'], medicineHistory: ['Multivitamins'], familyHistory: 'No significant family history', allergies: 'None', bloodType: 'O+', healthData: [92, 94, 93, 95, 96] },
-  { id: 7, name: 'Robert Taylor', age: 62, gender: 'male', severity: 7, records: ['Knee Surgery 2022', 'Physiotherapy 2023'], medicineHistory: ['Pain relievers'], familyHistory: 'Grandfather: Arthritis', allergies: 'Shellfish', bloodType: 'B-', healthData: [75, 78, 80, 82, 85] },
-  { id: 8, name: 'Olivia Martinez', age: 29, gender: 'female', severity: 4, records: ['Asthma Diagnosis 2021'], medicineHistory: ['Inhaler'], familyHistory: 'Mother: Asthma', allergies: 'Cats', bloodType: 'AB+', healthData: [82, 84, 83, 85, 86] },
-  { id: 9, name: 'William Anderson', age: 50, gender: 'male', severity: 8, records: ['Diabetes Diagnosis 2022'], medicineHistory: ['Insulin'], familyHistory: 'Father: Diabetes', allergies: 'None', bloodType: 'A+', healthData: [68, 70, 72, 75, 78] }
-];
-
 let currentPatient = null;
 
 // DOM elements
@@ -21,7 +8,6 @@ const backBtn = document.getElementById('back-btn');
 const scheduleAppointmentBtn = document.getElementById('schedule-appointment');
 
 // Event listeners
-addPatientForm.addEventListener('submit', handleAddPatient);
 searchInput.addEventListener('input', handleSearch);
 backBtn.addEventListener('click', () => showPage('home-page'));
 scheduleAppointmentBtn.addEventListener('click', handleScheduleAppointment);
@@ -30,6 +16,7 @@ scheduleAppointmentBtn.addEventListener('click', handleScheduleAppointment);
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
+    renderPatientLists()
     showPage(e.target.getAttribute('href').slice(1));
   });
 });
