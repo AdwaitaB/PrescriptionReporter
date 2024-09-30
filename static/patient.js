@@ -89,7 +89,7 @@ function renderResultsChart() {
     new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: healthQuestions,
+            labels: healthQuestions[""],
             datasets: [{
                 label: 'Your Health Assessment',
                 data: patientAnswers,
